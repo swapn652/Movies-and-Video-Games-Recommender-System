@@ -1,0 +1,211 @@
+* {
+    box-sizing: border-box;
+}
+
+
+.movieRS{
+    display: inline-block;
+    margin: 30px 410px;
+    padding-left:10px;
+    color:whitesmoke;
+}
+
+
+
+.searchBox {
+    display: inline-block;
+    /* border: 2px solid white; */
+    /* width: 1000px; */
+    margin-left: 360px;
+}
+
+
+.searchMovie {
+    /* padding-left: 500px; */
+    display: inline-block;
+    width: 730px;
+    border-radius: 20px;
+}
+
+
+
+.trendingMovies{
+    display: inline-block;
+    margin: 30px 380px;
+    padding-left:166px;
+    /* padding-top: 30px; */
+    padding-bottom: 30px;
+    /* border: 2px solid black; */
+    color: whitesmoke;
+    width: 740px;
+    /* border: 2px solid white; */
+}
+
+
+.movie-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.movie-content>div {
+    margin: 20px;
+}
+
+
+
+#content {
+	/* background-image: url("/static/people_photo/vg_background.jpeg"); */
+    background-repeat: no-repeat;
+	background-color: #181818;
+	font-family: 'Noto Sans JP', sans-serif;
+}
+
+
+.fig {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: brightness(50%);
+    position: absolute;
+    bottom: 0px;
+    top: 0px;
+    right: 0px;
+    left: 0px;
+    opacity: 0;
+    -moz-transition: all 0.75s ease;
+    -webkit-transition: all 0.75s ease;
+    transition: all 0.75s ease;
+}
+
+.fig:hover {
+    opacity: 1;
+    backdrop-filter: br;
+    -moz-transition: all 0.75s ease;
+    -webkit-transition: all 0.75s ease;
+    transition: all 0.75s ease;
+}
+
+.card-btn {
+    border-radius: 20px;
+}
+
+.imghvr {
+    position: relative;
+}
+
+
+.card-title {
+    text-align: center;
+}
+
+.movieInfo {
+    border: 2px solid white;
+}
+
+.searchedMoviePoster {
+    display: inline-block;
+    /* border: 2px solid white; */
+    margin: 5px 20px 20px 12px;
+    box-shadow: white;
+}
+
+.moviePosterImg {
+    height: 380px;
+    width: 250px;
+    border-radius: 20px;
+    -webkit-box-shadow: 0px 1px 15px 4px rgba(250, 250, 250, 1);
+    -moz-box-shadow: 0px 1px 15px 4px rgba(250, 250, 250, 1);
+    box-shadow: 0px 1px 15px 4px rgba(250, 250, 250, 1);
+}
+
+.searchedMovieTitle {
+    display: block;
+    /* border: 2px solid white; */
+    margin: 20px auto;
+}
+
+#searchedMovieName {
+    color: white;
+    text-align: center;
+
+}
+
+/* .movie {
+    color: #fff;
+    margin-left: auto;
+    margin-right: auto;
+    resize: none;
+} */
+
+.movie-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+
+#details {
+    display: inline-block;
+    margin-left: 50px;
+    margin-bottom: auto;
+    margin-top: auto;
+}
+
+
+h6 {
+    margin-bottom: 20px;
+}
+
+
+
+#mContent {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+
+.modal-body{
+    display: flex;
+}
+.profile-pic {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.searchBtn{
+    margin-left: -183px;
+}
+
+.movie {
+	color: #fff;
+	margin-left: auto;
+	margin-right: auto;
+	resize: none;
+    margin-top: 100px;
+    /* border: 2px solid white; */
+}
+
+.cast {
+	color: #fff;
+	margin-left: auto;
+	margin-right: auto;
+	resize: none;
+    /* border: 2px solid white; */
+}
+
+.ss{
+    margin-top: 100px;
+}
+
+.ssimg{
+    border: 10px solid white;
+    border radius: 15px;
+}
+
+.playBtn{
+    margin: 10px 10px 10px 100px;
+    width: 250px;
+}
