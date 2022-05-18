@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="/static/searchedVideoGame.css">
+  <!-- <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='searchedAndRecommended.css') }}"> -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js">
+  </script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.js">
+  </script>
+
+  <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/ui-lightness/jquery-ui.css" rel="stylesheet"
+    type="text/css" />
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sbuttons/dist/sbuttons.min.css">
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+  
+
+<title>Searched Result</title>
+</head>
+
+<body id="content">
+  
+<body id="content">
+    <div class="movieRS">
+      <h1>Video Games Recommender System</h1>
+    </div>
+  
+  
+  <div class="searchBox form-floating mb-3">
+    <form class="d-flex" action="/searchedVG" method="post" name="form">
+      <input class="form-control me-2 searchMovie" type="text" id="tags" id="floatingInput" type="search"
+        placeholder="What are you looking for?" name="game">
+      <label for="floatingInput">What are you looking for?</label>
+      <button type="submit" class="btn btn-primary searchBtn">Search</button>
+    </form>
+  </div> 
+
+
+  <body id="content">
+    <div class="searchedMovieTitle">
+      <center>
+        <h1 id="searchedMovieName" class="text-uppercase">{{searchedGameName}}</h1>
+      </center>
+    </div>
+    <br>
+
+    <div id="mContent">
+      <div class="searchedMoviePoster">
+        <img class="moviePosterImg" style="border-radius: 40px;margin-left: 90px;" height="400" width="250"
+          src="{{tommy}}">
+      </div>
+    
+      <!-- <div style="color: white;">
+        {{tommy}}
+      </div> -->
+
+      <div id="details">
+        <br />
+        <!-- <h6 id="title" style="color:white;">TITLE: &nbsp;Lorem, ipsum dolor.</h6> -->
+        <h6 id="overview" style="color:white;max-width: 85%">DESCRIPTION: &nbsp;{{searchedGameDesc}}</h6>
+        <h6 id="vote_average" style="color:white;">RATING: &nbsp;{{searchedGameRating}}/5 ({{searchedGameRatingsCount}} votes)</h6>
+
+        <h6 id="genres" style="color:white;">GENRE: &nbsp;{% for genre in searchedGameGenres %}
+            {{genre}} 
+        {% endfor %}</h6>
+
+
+        <h6 id="date" style="color:white;">RELEASE DATE: &nbsp;{{searchedGameReleaseDate}}</h6>
+        <h6 id="runtime" style="color:white;">PLAYTIME: &nbsp;{{searchedGamePlayTime}} hours</h6>
+        <h6 id="status" style="color:white;">PLATFORMS: &nbsp;{% for platform in searchedGamePlatforms %}
+            {{platform}} |
+        {% endfor %}</h6>
+      </div>
+    </div>
+    <a class="sbtn gradient-btn rounded-btn red-btn playBtn" data-bs-toggle="modal" href="#buy" role="button">BUY NOW
+    </a> 
+
+    <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalToggleLabel">Modal 1</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            Show a second modal and hide this one with the button below.
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Open second modal</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalToggleLabel2">Modal 2</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            Hide this modal and show the first with the button below.
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Back to first</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="modal fade" id="buy" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">{{searchedGameName}}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <div class="modal-body">
+          <img class="profile-pic" src="{{tommy}}" alt="{{searchedGameName}} - profile"
+            style="width: 250px;height:400px;border-radius: 10px;">
+          <div style="margin-left: 20px">
+            <p>
+              {{searchedGameDesc}}  
+            </p>
+            <br>
+            <br>
+            <input type="checkbox" id="purchase">
+            <label for="purchase">Click to confirm your order</label><br>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <!-- <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button> -->
+          <button class="btn btn-primary" data-bs-target="#confirm" data-bs-toggle="modal">Buy Now</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal fade" id="confirm" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalToggleLabel2">Congrats!</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Your order has been confirmed. It will be delivered to you within 3 days.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+        <!-- the bootstrap modal here i gave id as combination of a and id because details 0 contains numbers and an id in bootstrap cant 
+        begin with a number-->
+    <!-- looping over the dictionary from app.py to present required info in required container -->
+    {% for name, details in dev_details.items() if not dev_details.hidden %}
+    <div class="modal fade" id="a{{details[0]}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header" style="background-color: rgb(200, 33, 40);color: white;">
+            <h5 class="modal-title" id="exampleModalLabel">{{name}}</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+
+          <div class="modal-body" style="background-color: rgb(125, 125, 125);color: white;">
+            <img class="profile-pic" src="{{details[1]}}" alt="Leomord - profile"
+              style="width: 250px;height:400px;border-radius: 10px;">
+            <div style="margin-left: 20px">
+              <p><strong>Games worked with:</strong> {{details[2]}} </p>
+              <p><strong>Rating:</strong> {{details[3]}} </p>
+              <p>
+              <p><strong>Biography:</strong>
+              <p>
+                {{details[4]}}  
+              </p>
+            </div>
+          </div>
+          <div class="modal-footer" style="background-color: rgb(32, 27, 80);color: white;">
+            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+    
+    {% if devs|length > 1 %}
+    <div class="cast" style="color: #E8E8E8;">
+      <center>
+        <h1>TOP DEVELOPERS</h1>
+        <h3>(Click on the developer to know more)</h3>
+      </center>
+    </div>
+
+
+
+    <div class="movie-content">
+      <!-- looping over the dictionary from app.py to present required info in required container -->
+      {% for name, details in devs.items() if not devs.hidden %}
+      <div class="castcard card" style="width: 15rem;" title="Click to know more about {{name}}" data-bs-toggle="modal"
+        data-bs-target="#a{{details[0]}}">
+        <div class="imghvr">
+          <img class="card-img-top cast-img" id="Leomord" height="360" width="240" alt="{{name}} - profile"
+            src="{{details[1]}}">
+          <figcaption class="fig">
+            <button class="card-btn btn btn-danger"> Know More </button>
+          </figcaption>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">{{name}}</h5>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+
+    <div class="cast" style="color: #E8E8E8; margin-top: 100px;">
+      <center>
+        <h1>SCREENSHOTS</h1>
+      </center>
+    </div>
+    
+    {% for ss in gameSS %}
+    <div class="ss">
+      <center>
+        <img class="ssimg" src="{{ss}}" alt="{{searchedGameName}} screenshot" height="720px" width="1280px">  
+      </center>
+    </div>
+    {% endfor %} 
+   
+
+    {% if recGamesDetails|length > 1 %}
+    <div class="movie" style="color: #E8E8E8;">
+      <center><h1>YOU MIGHT ALSO LIKE:</h1></center>
+    </div>
+
+    <div class="movie-content">
+      {% for poster, title in recGamesDetails.items() if not recGamesDetails.hidden %}
+        <div class="card bg-dark mb-3" style="width: 15rem;" title="{{title}}">
+          <div class="imghvr">
+            <img class="card-img-top" height="360" width="240" alt="{{title}} - poster" src={{poster}}>
+            <figcaption class="fig">
+              <!-- <button class="card-btn btn btn-danger"> Click Me </button> -->
+              <!-- trying to send movie title as value to flask using request.form and then showing information about the movie -->
+              <form action="/searchedVG2" method="post" title="lEOMORD">
+                <input type="submit" class="card-btn btn btn-danger" name="game_name" value="{{title}}">
+              </form>
+            </figcaption>
+           </div>
+          <div class="card-body">
+            <h5 class="card-title" style="color:white;">{{title|upper}}</h5>
+            <img src="/static/people_photo/PlayStation_white.png" height="60px" width="90px" alt="..." style="margin-left: -10px;">
+            <img src="/static/people_photo/Xbox_white.png" height="30px" width="30px" alt="...">
+            <img src="/static/people_photo/PC_white.png" height="40px" width="40px" alt="..." style="margin-left: 30px;">
+          </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <div class="movie" style="color: #E8E8E8;">
+      <center><h1>NO RECORD FOUND FOR SIMILAR GAMES!</h1></center>
+    </div>
+     
+    {% endif %}
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+  -->
+    <script>
+       $(function () {
+        var availableTags = [
+          {% for game in game_titles %}
+                "{{game}}",
+        {% endfor %}
+        ];
+      $("#tags").autocomplete({
+        source: availableTags
+      });
+      } );
+
+    </script>
+  </body>
+
+</html>
